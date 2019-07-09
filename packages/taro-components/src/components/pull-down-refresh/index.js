@@ -13,11 +13,11 @@ class StaticRenderer extends Nerv.Component {
   }
 }
 
-function setTransform (nodeStyle, value) {
-  nodeStyle.transform = value
-  nodeStyle.webkitTransform = value
-  nodeStyle.MozTransform = value
-}
+// function setTransform (nodeStyle, value) {
+//   nodeStyle.transform = value
+//   nodeStyle.webkitTransform = value
+//   nodeStyle.MozTransform = value
+// }
 
 const isWebView = typeof navigator !== 'undefined' &&
   /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent)
@@ -228,7 +228,8 @@ class PullToRefresh extends Nerv.Component {
   setContentStyle = (ty) => {
     // todos: Why sometimes do not have `this.contentRef` ?
     if (this.contentRef) {
-      setTransform(this.contentRef.style, `translate3d(0px,${ty}px,0)`)
+      // setTransform(this.contentRef.style, `translate3d(0px,${ty}px,0)`)
+      this.contentRef.style.paddingTop = ty + 'px'
     }
   }
 
